@@ -1,0 +1,886 @@
+<html lang="uk" class="desktop mbr-site-loaded">
+<head>
+  <style>
+    /* Disable global smooth scroll that can cause lag */
+    html { scroll-behavior: auto !important; }
+    /* Ensure browser native scroll chaining */
+    html, body { overscroll-behavior: auto !important; }
+  </style>
+
+  <script>
+  // Make top-level wheel listeners passive to avoid blocking scroll
+  (function(){
+    var _add = EventTarget.prototype.addEventListener;
+    EventTarget.prototype.addEventListener = function(type, listener, options){
+      try{
+        var targetIsTop = (this===window || this===document || this===document.body);
+        if (targetIsTop && (type==='wheel' || type==='mousewheel')) {
+          if (options === undefined){ options = {passive:true}; }
+          else if (typeof options === 'boolean'){ options = {capture: options, passive:true}; }
+          else if (options && options.passive === undefined){ options = Object.assign({}, options, {passive:true}); }
+        }
+      }catch(e){}
+      return _add.call(this, type, listener, options);
+    };
+  })();
+  </script>
+
+  <base href="<?php echo get_template_directory_uri(); ?>/">
+	<meta charset="UTF-8">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	  <!-- PWA manifest -->
+   <link rel="manifest" href="/manifest.json">
+	
+	<link rel="stylesheet" href="static/assets/web/mobrise-icons2/mobirise2.css">
+	<link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="static/assets/parallax/jarallax.css">
+	<link rel="stylesheet" href="static/assets/dropdown/css/style.css">
+	<link rel="stylesheet" href="static/assets/socicon/css/styles.css">
+	<link rel="stylesheet" href="static/assets/theme/css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;700&amp;display=swap&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;700&display=swap&display=swap"></noscript>
+	<link rel="stylesheet" href="static/assets/css/mbr-additional.css" type="text/css">
+	<link rel="preconnect" href="https://www.youtube.com">
+	<link rel="preconnect" href="https://i.ytimg.com">
+	<link rel="dns-prefetch" href="https://www.youtube.com">
+  
+	
+	<style> 
+		.navbar-fixed-top {
+		  top: auto;
+		}
+		
+		
+		.btn-primary, .btn-primary:active{
+		
+			background-color: #000 !important;
+			border-color: #444444 !important;
+			color: #ffffff !important;
+			box-shadow: none;
+		}
+		#mobiriseBanner.container-banner {
+		  height: 8rem;
+		  opacity: 1;
+		  -webkit-animation: 4s linear animationHeight;
+		  -moz-animation: 4s linear animationHeight;
+			-o-animation: 4s linear animationHeight;
+			   animation: 4s linear animationHeight;
+			   transition: all  0.5s;
+		}
+		#mobiriseBanner.container-banner.container-banner-closing {
+		  pointer-events: none;
+		  height: 0;
+		  opacity: 0;
+		  -webkit-animation: 0.5s linear animationClosing;
+		  -moz-animation:  0.5s linear animationClosing;
+			-o-animation:  0.5s linear animationClosing;
+			   animation:  0.5s linear animationClosing;
+		}
+		#mobiriseBanner .banner {
+		  min-height: 8rem;
+		  position:fixed;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  background: #fff;
+		  padding: 10px;
+		  opacity:1;
+		  -webkit-animation: 4s linear animationBanner;
+		  -moz-animation: 4s linear animationBanner;
+			-o-animation: 4s linear animationBanner;
+			   animation: 4s linear animationBanner;
+		  z-index: 1031;
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: center;
+		}
+		#mobiriseBanner .banner p {
+		  overflow: hidden;
+		  display: -webkit-box;
+		  -webkit-line-clamp: 4;
+		  -webkit-box-orient: vertical;
+		  animation: none;
+		  visibility: visible;
+		}
+		#mobiriseBanner .buy-license {
+		  text-decoration: underline;
+		}
+		#mobiriseBanner .banner .btn {
+		  margin: 0.3rem 0.5rem;
+		  animation: none;
+		  visibility: visible;
+		}
+		.navbar.opened {
+			z-index: 1032;
+		}
+		@-webkit-keyframes animationBanner { 0% { opacity: 0; top: -8rem; } 75% { opacity: 0; top: -8rem; } 100% { opacity: 1; top: 0; } }
+		@-moz-keyframes animationBanner { 0% { opacity: 0; top: -8rem; } 75% { opacity: 0; top: -8rem; } 100% { opacity: 1; top: 0; } }
+		@-o-keyframes animationBanner { 0% { opacity: 0; top: -8rem; } 75% { opacity: 0; top: -8rem; } 100% { opacity: 1; top: 0; } }
+		   @keyframes animationBanner { 0% { opacity: 0; top: -8rem; } 75% { opacity: 0; top: -8rem; } 100% { opacity: 1; top: 0; } }
+		@-webkit-keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 8rem; } }
+		@-moz-keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 8rem; } }
+		@-o-keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 8rem; } }
+		   @keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 8rem; } }
+		   
+		@-webkit-keyframes animationClosing { 0% { height: 8rem; opacity: 1; } 30% { height: 8rem; opacity: 0.5;} 100% { height: 0; opacity: 0;} }
+		@-moz-keyframes animationClosing { 0% { height: 8rem; opacity: 1; } 30% { height: 8rem; opacity: 0.5;} 100% { height: 0; opacity: 0;} }
+		@-o-keyframes animationClosing { 0% { height: 8rem; opacity: 1; } 30% { height: 8rem; opacity: 0.5;} 100% { height: 0; opacity: 0;} }
+		@keyframes animationClosing { 0% { height: 8rem; opacity: 1; } 30% { height: 8rem; opacity: 0.5;} 100% { height: 0; opacity: 0;} }
+		
+		@media(max-width: 767px) {
+		  #mobiriseBanner.container-banner {
+			height: 12rem;
+		  }
+		  #mobiriseBanner .banner {
+			min-height: 12rem;
+		  }
+		  @-webkit-keyframes animationBanner { 0% { opacity: 0; top: -12rem; } 75% { opacity: 0; top: -12rem; } 100% { opacity: 1; top: 0; } }
+		  @-moz-keyframes animationBanner { 0% { opacity: 0; top: -12rem; } 75% { opacity: 0; top: -12rem; } 100% { opacity: 1; top: 0; } }
+		  @-o-keyframes animationBanner { 0% { opacity: 0; top: -12rem; } 75% { opacity: 0; top: -12rem; } 100% { opacity: 1; top: 0; } }
+			@keyframes animationBanner { 0% { opacity: 0; top: -12rem; } 75% { opacity: 0; top: -12rem; } 100% { opacity: 1; top: 0; } }
+		  @-webkit-keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 12rem; } }
+		  @-moz-keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 12rem; } }
+		  @-o-keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 12rem; } }
+			@keyframes animationHeight { 0% { height: 0; } 75% { height: 0; } 100% { height: 12rem; } }
+		
+		  @-webkit-keyframes animationClosing { 0% { height: 12rem; opacity: 1; } 30% { height: 12rem; opacity: 0.5;} 100% { height: 0; opacity: 0;} }
+		  @-moz-keyframes animationClosing { 0% { height: 12rem; opacity: 1; } 30% { height: 12rem; opacity: 0.5;} 100% { height: 0; opacity: 0;} }
+		  @-o-keyframes animationClosing { 0% { height: 12rem; opacity: 1; } 30% { height: 12rem; opacity: 0.5;} 100% { height: 0; opacity: 0;} }
+		  @keyframes animationClosing { 0% { height: 12rem; opacity: 1; } 30% { height: 12rem; opacity: 0.5;} 100% { height: 0; opacity: 0;} }
+		}
+	</style>
+	
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Barbershop",
+  "name": "GOTHAM Barbershop",
+  "image": "https://gotham.com.ua/static/images/mainfoto.jpeg",
+  "url": "https://gotham.com.ua/",
+  "telephone": "+38068895862",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "вул. Кам’янецька, 00",
+    "addressLocality": "Хмельницький",
+    "addressCountry": "UA",
+    "postalCode": "29000"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 49.428818,
+    "longitude": 26.981754
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "20:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "18:00" }
+  ],
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/gotham_khm",
+    "https://www.instagram.com/gotham_khm/",
+    "https://www.tiktok.com/@gotham_khm"
+  ]
+}
+</script>
+
+ 
+  <?php wp_head(); ?>
+</head>
+	
+	
+
+<body>
+
+	<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const navLinks = document.querySelectorAll('.navbar-collapse .nav-link');
+  const navbarCollapse = document.querySelector('.navbar-collapse');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // якщо меню відкрите — закриваємо
+      if (navbarCollapse.classList.contains('show')) {
+        new bootstrap.Collapse(navbarCollapse).toggle();
+      }
+    });
+  });
+});
+</script>
+
+<section data-bs-version="5.1" class="menu menu2 cid-upXQwOtviu" once="menu" id="menu-5-upXQwOtviu">
+	
+
+	<nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg opacityScroll">
+		<div class="container">
+
+			
+				
+						<div class="navbar-brand">
+							<span class="navbar-logo">
+								<a href="#menu-5-upXQwOtviu">
+									<img src="https://r.mobirisesite.com/748350/assets/images/photo-1596362601603-b74f6ef16-h_m1qkln0t.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький" style="height: 4.3rem;">
+								</a>
+							</span>
+						</div>
+			
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<div class="hamburger">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</button>
+			<div class="collapse navbar-collapse opacityScroll" id="navbarSupportedContent">
+				<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+					
+					<li class="nav-item">
+						<a class="nav-link link text-black display-4" href="#team-1-upXQwOxIKZ">Команда</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link link text-black display-4" href="#call-to-action-5-upXQwOujIU">Історія</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link link text-black display-4" href="#contacts-1">Контакти</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link link text-black display-4" href="https://n800898.alteg.io/company/752876/personal/select-services?o=">Послуги</a>
+					</li>
+				</ul>
+				
+				<div class="navbar-buttons mbr-section-btn">
+					<a class="btn btn-primary display-4" style="color: black" href="tel:+38068895862">Зателефонувати</a>
+				</div>
+			</div>
+			
+		</div>
+	</nav>
+</section>	
+
+	
+		
+		
+
+
+<style>@media (min-width: 0px) and (max-width: 767px){#hero-16-upXQwOukLF {background-size: 200% 100%;}}</style>
+<section class="header18 cid-upXQwOukLF mbr-fullscreen" data-bg-video="" id="hero-16-upXQwOukLF" style="background-image: url('static/images/mainfoto.jpeg')">
+  
+
+    <div class="mbr-overlay" style="opacity: 0.1; background-color: rgb(0, 0, 0);"></div>
+    <div class=" container-fluid">
+      <div class="row">
+        <div class="content-wrap col-12 col-md-12">
+          <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-4 display-1">
+          <strong>
+    
+              </strong>	
+          </h1>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+   <section data-bs-version="5.1" class="gallery4 cid-upXQwOvUG0" id="gallery-12-upXQwOvUG0">
+    
+    
+    <div class="container-fluid gallery-wrapper">
+      <div class="row justify-content-center">
+        <div class="col-12 content-head">
+          
+        </div>
+      </div>
+      <div class="grid-container">
+        <div class="grid-container-1" style="transform: translate3d(-1983.15px, 0px, 0px);">
+          <div class="grid-item">
+            <img src="static/images/photo-gallery1.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div>
+          <div class="grid-item">
+            <img src="static/images/photo-gallery5.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div>
+          <div class="grid-item">
+            <img src="static/images/photo-gallery3.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div>
+          <div class="grid-item">
+            <img src="static/images/photo-gallery4.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div>
+          <div class="grid-item">
+            <img src="static/images/photo-gallery2.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div>
+        <div class="grid-item">
+            <img src="static/images/photo-gallery1.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div><div class="grid-item">
+            <img src="static/images/photo-gallery5.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div><div class="grid-item">
+            <img src="static/images/photo-gallery3.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div><div class="grid-item">
+            <img src="static/images/photo-gallery4.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div><div class="grid-item">
+      <p class="mbr-text mbr-fonts-style display-7" style="font-size: 0.85em; opacity: 0.6; margin: 0;">
+        Developed by <a href="https://www.linkedin.com/in/dmytro-shapovaliuk-4aab80394/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">Dmytro Shapovaliuk</a>
+    </p>       <img src="static/images/photo-gallery2.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div></div>
+        <div class="grid-container-2" style="transform: translate3d(-86.8523px, 0px, 0px);">
+          <div class="grid-item">
+            <img src="static/images/photo-gallery2.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div>
+          <div class="grid-item">
+            <img src="static/images/photo-gallery4.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div>
+          <div class="grid-item">
+            <img src="static/images/photo-gallery3.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div>
+          <div class="grid-item">
+            <img src="static/images/photo-gallery5.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div>
+          <div class="grid-item">
+            <img src="static/images/photo-gallery1.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div>
+        <div class="grid-item">
+            <img src="static/images/photo-gallery2.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div><div class="grid-item">
+            <img src="static/images/photo-gallery4.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div><div class="grid-item">
+            <img src="static/images/photo-gallery3.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div><div class="grid-item">
+            <img src="static/images/photo-gallery5.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div><div class="grid-item">
+            <img src="static/images/photo-gallery1.jpg" alt="Чоловіча стрижка у барбершопі GOTHAM, Хмельницький">
+          </div></div>
+      </div>
+    </div>
+  </section>
+	
+	 <section data-bs-version="5.1" class="article13 cid-upXQwOujIU" id="call-to-action-5-upXQwOujIU">
+      
+       <h4 class="card-title mbr-fonts-style display-2">
+                              <strong>Покращіть свій стиль сьогодні!</strong>
+                          </h4>
+      
+      
+  </section>
+	
+	
+
+<section class="hero-video position-relative">
+  <!-- YouTube відео як фон -->
+  <div class="video-bg position-absolute top-0 start-0 w-100 h-100 overflow-hidden">
+    <iframe
+      id="heroVideo"
+      src="https://www.youtube.com/embed/Obb9xzEaG08?autoplay=1&mute=1&playsinline=1&controls=0&loop=1&playlist=Obb9xzEaG08&modestbranding=1&rel=0&iv_load_policy=3&fs=0&enablejsapi=1"
+      title="Hero video"
+      allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+      referrerpolicy="strict-origin-when-cross-origin"
+      class="video-iframe"
+    ></iframe>
+  </div>
+
+  <!-- Твій контент поверх (можна додати кнопку або текст) -->
+  <!--
+  <div class="container position-relative z-1 text-center text-white py-5">
+    <h1 class="display-3 fw-bold">GOTHAM Barbershop</h1>
+    <a href="#booking" class="btn btn-light btn-lg mt-3">Записатися</a>
+  </div>
+  -->
+</section>
+
+<style>
+  /* Секція */
+  .hero-video {
+    min-height: 100svh;
+    position: relative;
+    background: #000;
+  }
+
+  /* iFrame як фон без чорних смуг */
+  .video-iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0;
+    width: 177.78vh; /* 100vh * 16 / 9 */
+    height: 100vh;
+    min-width: 100vw;
+    min-height: 56.25vw; /* 100vw * 9 / 16 */
+  }
+
+  /* Легке затемнення зверху (можна прибрати) */
+  .hero-video::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0) 45%);
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  (function () {
+    const iframe = document.getElementById("heroVideo");
+    if (!iframe) return;
+
+    // функція для відтворення через YouTube API
+    function play() {
+      try {
+        iframe.contentWindow.postMessage(
+          JSON.stringify({ event: "command", func: "playVideo", args: [] }),
+          "*"
+        );
+      } catch (e) {}
+    }
+
+    // пробуємо автозапуск при завантаженні
+    window.addEventListener("load", play);
+
+    // якщо автоплей заблокували — запускаємо після першої взаємодії
+    const oncePlay = () => {
+      play();
+      document.removeEventListener("click", oncePlay);
+      document.removeEventListener("touchstart", oncePlay);
+    };
+    document.addEventListener("click", oncePlay, { passive: true });
+    document.addEventListener("touchstart", oncePlay, { passive: true });
+  })();
+</script>
+
+	
+	
+ 
+
+ 
+  
+ 
+	
+	
+	
+<section data-bs-version="5.1" class="gallery10 cid-upXQwOwNLE" id="features-69-upXQwOwNLE">
+    
+  
+  
+    <div class="container-fluid">
+  
+        <div class="loop-container" style="position: relative; display: inline-flex; white-space: nowrap; transform: translateX(-48.05%);">
+          <div class="item display-1" data-linewords="GOTHAM Barbershop у Хмельницькому * Професійні майстри з досвідом роботи *" data-direction="-1" data-speed="0.05">
+			  <h1>
+				   <strong>GOTHAM Barbershop у Хмельницькому * Професійні майстри з досвідом роботи * &nbsp;</strong>
+			  </h1></div>
+  
+          <div class="item display-1" data-linewords="GOTHAM Barbershop у Хмельницькому * Професійні майстри з досвідом роботи *" data-direction="-1" data-speed="0.05" style="position: absolute; left: 100%;"><h1>
+				  <strong>GOTHAM Barbershop у Хмельницькому * Професійні майстри з досвідом роботи * &nbsp;</strong>
+			  </h1>
+			</div>
+        </div>
+      
+    </div>
+  </section>
+	
+	<section data-bs-version="5.1" class="people03 cid-upXQwOxIKZ" id="team-1-upXQwOxIKZ">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 content-head">
+                <div class="mbr-section-head mb-5"></div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+
+            <!-- Олександр -->
+            <div class="item features-image col-12 col-md-6 col-lg-3">
+                <div class="item-wrapper">
+                  <a href="https://n800898.alteg.io/company/752876/personal/select-master/master-info/752876/2155939?o=">
+                    <div class="item-img mb-3">
+                        <img src="https://assets.alteg.io/masters/origin/f/fa/fa3f8ac8a039ed4_20240216210226.jpeg" alt="Чоловіча стрижка в майстра Олександра у барбершопі GOTHAM, Хмельницький">
+                    </div>
+                  </a>
+                    <div class="item-content align-left">
+                        <h5 class="item-title mbr-fonts-style display-5"><strong>Олександр</strong></h5>
+                        <h6 class="item-subtitle mbr-fonts-style mb-3 display-7">Барбер</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ярослав (закоментований) -->
+            <!--
+            <div class="item features-image col-12 col-md-6 col-lg-3">
+                <div class="item-wrapper">
+                  <a href="https://n800898.alteg.io/company/752876/personal/select-master/master-info/752876/2849555?o=m2849555">
+                    <div class="item-img mb-3">
+                        <img src="https://assets.alteg.io/masters/origin/2/2b/2b81e2da0e19f7b_20250606224228.jpeg" alt="Чоловіча стрижка в майстра Ярослава у барбершопі GOTHAM, Хмельницький">
+                    </div>
+                  </a>
+                    <div class="item-content align-left">
+                        <h5 class="item-title mbr-fonts-style display-5"><strong>Ярослав</strong></h5>
+                        <h6 class="item-subtitle mbr-fonts-style mb-3 display-7">Барбер</h6>
+                    </div>
+                </div>
+            </div>
+            -->
+
+            <!-- Богдан -->
+            <div class="item features-image col-12 col-md-6 col-lg-3">
+                <div class="item-wrapper">
+                  <a href="https://n800898.alteg.io/company/752876/personal/select-master/master-info/752876/2775748?o=">
+                    <div class="item-img mb-3">
+                        <img src="https://assets.alteg.io/masters/origin/a/aa/aafe8b8f0227b36_20241219190207.jpeg" alt="Чоловіча стрижка в майстра Богдана у барбершопі GOTHAM, Хмельницький">
+                    </div>
+                  </a>
+                    <div class="item-content align-left">
+                        <h5 class="item-title mbr-fonts-style display-5"><strong>Богдан</strong></h5>
+                        <h6 class="item-subtitle mbr-fonts-style mb-3 display-7">Барбер</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Валентин -->
+            <div class="item features-image col-12 col-md-6 col-lg-3">
+                <div class="item-wrapper">
+                  <a href="https://n800898.alteg.io/company/752876/personal/select-master/master-info/752876/2881238?o=m2849555">
+                    <div class="item-img mb-3">
+                        <img src="https://assets.alteg.io/masters/origin/8/8b/8b7b81f293a3ab3_20250928134142.jpeg" alt="Чоловіча стрижка в майстра Валентина у барбершопі GOTHAM, Хмельницький">
+                    </div>
+                  </a>
+                    <div class="item-content align-left">
+                        <h5 class="item-title mbr-fonts-style display-5"><strong>Валентин</strong></h5>
+                        <h6 class="item-subtitle mbr-fonts-style mb-3 display-7">Молодший барбер</h6>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+	
+	 <section data-bs-version="5.1" class="article13 cid-upXQwOujIU" id="call-to-action-5-upXQwOujIU">
+      
+       <h4 class="card-title mbr-fonts-style display-2">
+                              <strong>Історія GOTHAM</strong>
+                          </h4>
+      
+      <div class="container">
+		     <div class="row justify-content-center">
+
+        <div class="card col-md-12 col-lg-10">
+			  
+   
+			
+          <div class="card-wrapper">
+            
+
+            <div class="row card-box align-left">
+              <div class="item features-without-image col-12">
+                <div class="item-wrapper">
+                  
+                  <p class="mbr-text mbr-fonts-style display-7">В GOTHAM ми віримо, що кожна стрижка - це не просто робота, а справжнє мистецтво. Наша команда професіоналів з радістю перетворить ваше волосся на витвір мистецтва, яке буде приковувати погляди та викликати заздрість навіть у друзів.</p>
+                </div>
+              </div>
+              <div class="item features-without-image col-12">
+                <div class="item-wrapper">
+                  
+                  <p class="mbr-text mbr-fonts-style display-7">Ми почали свій шлях в світі барберингу з однієї простої ідеї: зробити чоловіків стильними та впевненими в собі. І робити це там, де інші і не думали. Звідси і пішла наша концепція, з назвою GOTHAM в чорно-білих тонах, та з легкою похмурістю. З того часу ми пройшли довгий шлях, і тепер GOTHAM - це не просто барбершоп, це ціла культура, де кожний гість - це VIP-клієнт.</p>
+                </div>
+              </div>
+              <div class="item features-without-image col-12">
+                <div class="item-wrapper">
+                  
+                  <p class="mbr-text mbr-fonts-style display-7">Наша місія - не просто стригти волосся, а створювати атмосферу, де кожний може розслабитись, насолодитися процесом та піти зі стильною стрижкою та посмішкою на обличчі. <br>
+					 </p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+           <h3 class="mbr-section-title align-center mb-5 mbr-fonts-style display-2">
+                    <strong> Приєднуйтесь до нас і станьте частиною нашої історії</strong>
+                </h3>
+		  
+		  
+      </div>
+		 
+		  <section data-bs-version="5.1" class="features023 cid-upXQwOxYmq" id="metrics-1-upXQwOxYmq">
+  
+ 
+      
+    <div class="container">
+        
+        <div class="row content-row justify-content-center">
+            <div class="item features-without-image col-12 col-md-6 col-lg-4 item-mb">
+                <div class="item-wrapper">
+                    <div class="title mb-2 mb-md-3">
+                        <span class="num mbr-fonts-style display-1">
+                            <strong>700+</strong></span>
+                    </div>
+                    <h4 class="card-title mbr-fonts-style display-5">
+                        <strong>Щасливих клієнтів</strong>
+                    </h4>
+                    
+                </div>
+            </div>
+            <div class="item features-without-image col-12 col-md-6 col-lg-4 item-mb">
+                <div class="item-wrapper">
+                    <div class="title mb-2 mb-md-3">
+                        <span class="num mbr-fonts-style display-1">
+                            <strong>5</strong></span>
+                    </div>
+                    <h4 class="card-title mbr-fonts-style display-5">
+                        <strong>Професійних барберів</strong>
+                    </h4>
+                    
+                </div>
+            </div>
+            <div class="item features-without-image col-12 col-md-6 col-lg-4 item-mb">
+                <div class="item-wrapper">
+                    <div class="title mb-2 mb-md-3">
+                        <span class="num mbr-fonts-style display-1">
+                            <strong>4</strong></span>
+                    </div>
+                    <h4 class="card-title mbr-fonts-style display-5">
+                        <strong>Роки на ринку</strong>
+                    </h4>
+                    
+                </div>
+				
+				
+            </div>
+			
+
+			
+			
+        </div>
+		
+		
+    </div>
+</section>
+  </section>
+	
+	<section data-bs-version="5.1" class="list1 cid-upXQwOwPe3" id="faq-1-upXQwOwPe3">
+      
+      
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-12 col-md-12 col-lg-10 m-auto">
+                  <div class="content">
+                      <div class="row justify-content-center mb-5">
+                          <div class="col-12 content-head">
+                              <div class="mbr-section-head">
+                                  <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                                      <strong>Питання та відповіді</strong>
+                                  </h4>
+                                  
+                              </div>
+                          </div>
+                      </div>
+                      <div id="bootstrap-accordion_7" class="panel-group accordionStyles accordion" role="tablist" aria-multiselectable="true">
+                          <div class="card">
+                              <div class="card-header" role="tab" id="headingOne">
+                                  <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse1_7" aria-expanded="false" aria-controls="collapse1">
+                                      <h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-5">Як записатись на стрижку?</h6>
+                                      <span class="sign mbr-iconfont mobi-mbri-arrow-down mbri-arrow-down"></span>
+                                  </a>
+                              </div>
+                              <div id="collapse1_7" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_7" style="">
+                                  <div class="panel-body">
+                                      <p class="mbr-fonts-style panel-text display-7">Просто зателефонуйте за номером вказаним на сайті, або тисніть на кнопку "Онлайн запис" !</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="card">
+                              <div class="card-header" role="tab" id="headingOne">
+                                  <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse2_7" aria-expanded="false" aria-controls="collapse2">
+                                      <h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-5">Чи є у вас скидка для нових клієнтів?</h6>
+                                      <span class="sign mbr-iconfont mobi-mbri-arrow-down mbri-arrow-down"></span>
+                                  </a>
+                              </div>
+                              <div id="collapse2_7" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_7" style="">
+                                  <div class="panel-body">
+                                      <p class="mbr-fonts-style panel-text display-7">Звісно, у нас знайдеться спеціальна пропозиція для кожного!</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="card">
+                              <div class="card-header" role="tab" id="headingOne">
+                                  <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse3_7" aria-expanded="false" aria-controls="collapse3">
+                                      <h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-5">Який стиль стрижки обрати?</h6>
+                                      <span class="sign mbr-iconfont mobi-mbri-arrow-down mbri-arrow-down"></span>
+                                  </a>
+                              </div>
+                              <div id="collapse3_7" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_7">
+                                  <div class="panel-body">
+                                      <p class="mbr-fonts-style panel-text display-7">Наші майстри допоможуть Вам визначитися та підберуть найкращий стиль під Вас!</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="card">
+                              <div class="card-header" role="tab" id="headingOne">
+                                  <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse4_7" aria-expanded="false" aria-controls="collapse4">
+                                      <h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-5">Чи можу я прийти без запису?</h6>
+                                      <span class="sign mbr-iconfont mobi-mbri-arrow-down mbri-arrow-down"></span>
+                                  </a>
+                              </div>
+                              <div id="collapse4_7" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_7">
+                                  <div class="panel-body">
+                                      <p class="mbr-fonts-style panel-text display-7">Звичайно, приходьте та друзів беріть із собою, адже у нас Ви забудете що таке нудне очікування! </p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="card">
+                              <div class="card-header" role="tab" id="headingOne">
+                                  <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse5_7" aria-expanded="false" aria-controls="collapse5">
+                                      <h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-5">Чи працюєте ви у вихідні дні?</h6>
+                                      <span class="sign mbr-iconfont mobi-mbri-arrow-down mbri-arrow-down"></span>
+                                  </a>
+                              </div>
+                              <div id="collapse5_7" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_7">
+                                  <div class="panel-body">
+                                      <p class="mbr-fonts-style panel-text display-7">Так, для Вас ми працюмо кожного дня! З 09:00 до 21:00 </p>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+			  <h4 id="contacts-1">
+                        
+                    </h4> 
+  </section>
+	
+	
+	
+
+								          <div class="media-container-row">
+										
+            <div class="col-12">
+                
+                <div class="social-list align-center">
+                   
+<!-- Соціальні іконки -->
+<div class="d-flex justify-content-center align-items-center gap-4 social-icons">
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/gotham_khm" target="_blank" rel="noopener"
+     class="d-inline-flex justify-content-center align-items-center rounded-circle"
+     style="width:72px;height:72px;background-color:#1877F2;font-size:32px;">
+    <i class="bi bi-facebook"></i>
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/gotham_khm/" target="_blank" rel="noopener"
+     class="d-inline-flex justify-content-center align-items-center rounded-circle"
+     style="width:72px;height:72px;background-color:#f00075;font-size:32px;">
+    <i class="bi bi-instagram"></i>
+  </a>
+
+
+	
+	  <!-- TikTok -->
+  <a href="https://www.tiktok.com/@gotham_khm" target="_blank" rel="noopener"
+     class="d-inline-flex justify-content-center align-items-center rounded-circle"
+     style="width:72px;height:72px;background-color:#000000;font-size:32px;">
+    <i class="bi bi-tiktok"></i>
+  </a>
+
+</div>
+
+<style>
+.social-icons a {
+  color: #fff !important;                 /* усі іконки білі */
+  text-decoration: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  -webkit-text-decoration: none !important;
+  text-decoration-color: transparent !important;
+  text-decoration-line: none !important;
+  transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+}
+
+.social-icons a i {
+  text-decoration: none !important;
+  text-decoration-color: transparent !important;
+  color: inherit !important;              /* успадковує #fff */
+}
+
+/* Ховер */
+.social-icons a:hover,
+.social-icons a:focus {
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .18) !important;
+  text-decoration: none !important;
+}
+
+
+</style>
+
+
+</div>
+
+                    
+                </div>
+            </div>
+
+
+
+	
+	
+	
+
+  <section data-bs-version="5.1" class="contacts01 cid-upXQwOysdb" id="contacts-1-upXQwOysdb">
+      
+
+<div class="container"><div class="row"><div class="modal-content-map">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2594.946910571441!2d26.981754099999996!3d49.428817699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473207e58d9c1a31%3A0xc77e52681197280a!2z0JHQsNGA0LHQtdGA0YjQvtC_IEdvdGhhbQ!5e0!3m2!1suk!2sua!4v1736185449907!5m2!1suk!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div></div>
+  </section>
+
+
+
+<section data-bs-version="5.1" class="footer4 cid-upXQwOyYll" once="footers" id="footer-4-upXQwOyYll">
+    <div class="container">
+        <div class="media-container-row align-center mbr-white">
+           <div class="col-12" style="display: flex; flex-direction: column; align-items: center; min-height: 80px; justify-content: space-between;">
+    <p class="mbr-text mb-0 mbr-fonts-style display-7">© 2026 GOTHAM Barbershop у центрі Хмельницького. Всі права захищені.</p>
+    <p class="mbr-text mbr-fonts-style display-7" style="font-size: 0.85em; opacity: 0.6; margin: 0;">
+        Developed by <a href="https://www.linkedin.com/in/dmytro-shapovaliuk-4aab80394/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">Dmytro Shapovaliuk</a>
+    </p>
+</div>
+        </div>
+    </div>
+</section>
+	
+	<script type="text/javascript" src="https://w800898.alteg.io/widgetJS" charset="UTF-8"></script>
+	<script src="static/assets/web/jquery/jquery.min.js"></script>
+	<script src="static/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="static/assets/parallax/jarallax.js"></script>
+	<script src="static/assets/smoothscroll/smooth-scroll.js"></script>
+	<script src="static/assets/ytplayer/index.js"></script>
+	<script src="static/assets/dropdown/js/navbar-dropdown.js"></script>
+	<script src="static/assets/vimeo/player.js"></script>
+	<script src="static/assets/scroll-gallery/scroll-gallery.js"></script>
+	<script src="static/assets/mbr-switch/mbr-switch-arrow.js"></script>
+	<script src="static/assets/theme/js/script.js"></script>
+	<script src="static/assets/formoid/formoid.min.js"></script>
+
+
+<?php wp_footer(); ?>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(function(reg) {
+        console.log('ServiceWorker registered:', reg.scope);
+      })
+      .catch(function(err) {
+        console.log('ServiceWorker registration failed:', err);
+      });
+  });
+}
+</script>
+	
+	</body></html>

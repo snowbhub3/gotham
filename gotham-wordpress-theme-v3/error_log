@@ -1,0 +1,128 @@
+[01-Nov-2025 17:47:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[02-Nov-2025 14:54:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[10-Nov-2025 07:19:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[12-Nov-2025 02:09:57 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[14-Nov-2025 02:02:04 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[16-Nov-2025 02:15:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[16-Nov-2025 13:07:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[16-Nov-2025 13:07:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[16-Nov-2025 13:07:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[12-Dec-2025 00:15:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[29-Dec-2025 10:24:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[10-Jan-2026 09:16:16 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[14-Jan-2026 19:44:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[14-Jan-2026 19:44:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[15-Jan-2026 16:00:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[23-Jan-2026 16:42:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[27-Jan-2026 20:50:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[31-Jan-2026 16:46:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[06-Feb-2026 17:07:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[06-Feb-2026 19:03:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[25-Feb-2026 03:25:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[03-Mar-2026 19:07:16 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[10-Mar-2026 09:06:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[12-Mar-2026 04:23:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[27-Mar-2026 13:24:05 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[27-Mar-2026 14:15:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[27-Mar-2026 23:19:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[31-Mar-2026 21:32:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[08-Apr-2026 09:13:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[23-Apr-2026 11:11:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[26-Apr-2026 06:27:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
+[05-May-2026 10:43:19 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/h74671c/public_html/wp-content/themes/gotham-wordpress-theme-v3/index.php on line 1
