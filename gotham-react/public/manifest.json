@@ -1,0 +1,44 @@
+{
+  "name": "GOTHAM Barbershop - Чоловіча стрижка у Хмельницькому",
+  "short_name": "GOTHAM Barbershop",
+  "description": "Преміальна чоловіча стрижка у центрі Хмельницького. Професійні барбери, затишна атмосфера, сучасні послуги.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0e27",
+  "theme_color": "#d4af37",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["business", "shopping"],
+  "screenshots": [
+    {
+      "src": "/static/images/mainfoto.jpeg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Записатися",
+      "short_name": "Запис",
+      "description": "Записатися на стрижку",
+      "url": "https://n800898.alteg.io/company/752876/personal/select-services?o=",
+      "icons": []
+    },
+    {
+      "name": "Контакти",
+      "short_name": "Контакти",
+      "description": "Переглянути контакти барбершопу",
+      "url": "#contacts",
+      "icons": []
+    }
+  ]
+}

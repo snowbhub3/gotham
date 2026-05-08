@@ -1,0 +1,70 @@
+export const SEO_CONFIG = {
+  site: {
+    name: 'GOTHAM Barbershop',
+    url: 'https://gotham.com.ua',
+    description: 'Преміальна чоловіча стрижка у центрі Хмельницького. Професійні барбери, затишна атмосфера, сучасні послуги.',
+    image: 'https://r.mobirisesite.com/748350/assets/images/mainfoto-p-1080.jpeg',
+    lang: 'uk',
+  },
+  business: {
+    name: 'GOTHAM Barbershop',
+    type: 'Barbershop',
+    phone: '+38068895862',
+    email: 'gotham@barbershop.ua',
+    address: {
+      street: 'вул. Кам\'янецька',
+      city: 'Хмельницький',
+      region: 'Хмельницька область',
+      country: 'Україна',
+      postalCode: '29000',
+      countryCode: 'UA',
+    },
+    geo: {
+      latitude: 49.428818,
+      longitude: 26.981754,
+    },
+    hours: {
+      monday: '10:00-20:00',
+      tuesday: '10:00-20:00',
+      wednesday: '10:00-20:00',
+      thursday: '10:00-20:00',
+      friday: '10:00-20:00',
+      saturday: '10:00-18:00',
+      sunday: '10:00-18:00',
+    },
+  },
+  social: {
+    facebook: 'https://www.facebook.com/gotham_khm',
+    instagram: 'https://www.instagram.com/gotham_khm/',
+    tiktok: 'https://www.tiktok.com/@gotham_khm',
+  },
+  keywords: {
+    primary: [
+      'барбершоп Хмельницький',
+      'чоловіча стрижка Хмельницький',
+      'стрижка у центрі Хмельницького',
+      'барбер Хмельницький',
+      'професійна стрижка',
+    ],
+    secondary: [
+      'barber shop Khmelnytskyi',
+      'men\'s haircut Khmelnytskyi',
+      'barbershop center',
+      'premium barbershop',
+      'стрижка бороди',
+      'чоловічі послуги',
+    ],
+    local: [
+      'барбершоп біля центру',
+      'стрижка поруч із центром',
+      'барбершоп Хмельницький центр',
+      'найкращий барбершоп',
+    ],
+  },
+  breadcrumbs: [
+    { name: 'Головна', url: '/' },
+    { name: 'Послуги', url: '#services' },
+    { name: 'Команда', url: '#team' },
+    { name: 'Контакти', url: '#contacts' },
+  ],
+};

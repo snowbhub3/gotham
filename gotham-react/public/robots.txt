@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /static/
+Disallow: /admin/
+
+Sitemap: https://gotham.com.ua/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+Allow: /static/
+
+User-agent: Bingbot
+Allow: /
+Allow: /static/
