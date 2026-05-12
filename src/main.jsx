@@ -27,8 +27,8 @@ gsap.registerPlugin(ScrollTrigger);
 const bookingUrl = 'https://n800898.alteg.io/company/752876/personal/select-services?o=';
 const googleReviewUrl = 'https://www.google.com/search?q=GOTHAM+Barbershop+%D0%A1%D0%BE%D0%B1%D0%BE%D1%80%D0%BD%D0%B0+14%2F2+%D0%A5%D0%BC%D0%B5%D0%BB%D1%8C%D0%BD%D0%B8%D1%86%D1%8C%D0%BA%D0%B8%D0%B9#lrd=0x473207e58d9c1a31:0xc77e52681197280a,3,,,,';
 const mapsRouteUrl = 'https://www.google.com/maps/dir/?api=1&destination=GOTHAM%20Barbershop%2C%20%D0%B2%D1%83%D0%BB.%20%D0%A1%D0%BE%D0%B1%D0%BE%D1%80%D0%BD%D0%B0%2014%2F2%2C%20%D0%A5%D0%BC%D0%B5%D0%BB%D1%8C%D0%BD%D0%B8%D1%86%D1%8C%D0%BA%D0%B8%D0%B9&travelmode=driving';
-const phone = '+38068895862';
-const displayPhone = '+380 6889-58-62';
+const phone = '+380688985862';
+const displayPhone = '+380 68 898 58 62';
 const marketStartYear = 2022;
 const GA_IDS = (import.meta.env.VITE_GA_IDS || import.meta.env.VITE_GA_ID || 'G-5TJFV12V06,GT-57S8T9C3')
   .split(',')
@@ -128,7 +128,7 @@ const faqs = [
 const copy = {
   uk: {
     seoTitle: 'GOTHAM Barbershop | Твій барбершоп у Хмельницькому',
-    seoDescription: 'Знаходимося в центрі Хмельницького, у нас: стильні чоловічі стрижки, моделювання бороди, хімічна завивка — усе швидко та якісно. Запис онлайн або за телефоном — зручно та легко. Вул. Соборна 14/2, тел. +38068895862.',
+    seoDescription: 'Знаходимося в центрі Хмельницького, у нас: стильні чоловічі стрижки, моделювання бороди, хімічна завивка — усе швидко та якісно. Запис онлайн або за телефоном — зручно та легко. Вул. Соборна 14/2, тел. +380 68 898 58 62.',
     nav: { team: 'Команда', story: 'Історія', booking: 'Запис', contacts: 'Контакти' },
     common: {
       call: 'Подзвонити',
@@ -205,7 +205,7 @@ const copy = {
   },
   en: {
     seoTitle: 'GOTHAM Barbershop | Your Barbershop in Khmelnytskyi',
-    seoDescription: 'Located in the center of Khmelnytskyi, we offer stylish men’s haircuts, beard trimming and men’s perm — all done quickly and professionally. Book online or by phone — easy and convenient. Soborna 14/2, tel. +38068895862.',
+    seoDescription: 'Located in the center of Khmelnytskyi, we offer stylish men’s haircuts, beard trimming and men’s perm — all done quickly and professionally. Book online or by phone — easy and convenient. Soborna 14/2, tel. +380 68 898 58 62.',
     nav: { team: 'Team', story: 'Story', booking: 'Book', contacts: 'Contacts' },
     common: {
       call: 'Call',
