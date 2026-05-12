@@ -547,7 +547,7 @@ function Header({ nav, lang, t, theme, menuOpen, setMenuOpen, setTheme, setLang,
 function Hero({ t, lang, openBooking, onNavClick }) {
   useEffect(() => {
     const hero = document.querySelector('.hero-section');
-    const timer = window.setTimeout(() => hero?.classList.add('intro-done'), 1900);
+    const timer = window.setTimeout(() => hero?.classList.add('intro-done'), 1150);
     return () => window.clearTimeout(timer);
   }, []);
 
