@@ -128,7 +128,7 @@ const faqs = [
 const copy = {
   uk: {
     seoTitle: 'GOTHAM Barbershop | Твій барбершоп у Хмельницькому',
-    seoDescription: 'Знаходимося в центрі Хмельницького, у нас: стильні чоловічі стрижки, моделювання бороди, хімічна завивка — усе швидко та якісно. Запис онлайн або за телефоном — зручно та легко. Вул. Соборна 14/2, тел. +380 68 898 58 62.',
+    seoDescription: 'Знаходимося в центрі Хмельницького, у нас: стильні чоловічі стрижки, моделювання бороди, хімічна завивка — усе швидко та якісно. Запис онлайн або за телефоном — зручно та легко.\nВул. Соборна 14/2, тел. +380 68 898 58 62.',
     nav: { team: 'Команда', story: 'Історія', booking: 'Запис', contacts: 'Контакти' },
     common: {
       call: 'Подзвонити',
@@ -205,7 +205,7 @@ const copy = {
   },
   en: {
     seoTitle: 'GOTHAM Barbershop | Your Barbershop in Khmelnytskyi',
-    seoDescription: 'Located in the center of Khmelnytskyi, we offer stylish men’s haircuts, beard trimming and men’s perm — all done quickly and professionally. Book online or by phone — easy and convenient. Soborna 14/2, tel. +380 68 898 58 62.',
+    seoDescription: 'Located in the center of Khmelnytskyi, we offer stylish men’s haircuts, beard trimming and men’s perm — all done quickly and professionally. Book online or by phone — easy and convenient.\nSoborna 14/2, tel. +380 68 898 58 62.',
     nav: { team: 'Team', story: 'Story', booking: 'Book', contacts: 'Contacts' },
     common: {
       call: 'Call',
