@@ -14,7 +14,13 @@
     />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="theme-color" content="#050505" />
+    <meta name="application-name" content="GOTHAM Barbershop" />
+    <meta name="apple-mobile-web-app-title" content="GOTHAM Barbershop" />
     <link rel="canonical" href="https://gotham.com.ua/" />
+    <link rel="alternate" hreflang="uk-UA" href="https://gotham.com.ua/" />
+    <link rel="alternate" hreflang="en" href="https://gotham.com.ua/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://gotham.com.ua/" />
+    <link rel="image_src" href="https://gotham.com.ua/assets/mainfoto.png" />
     <link rel="icon" type="image/png" href="/лого.png" />
     <link rel="apple-touch-icon" href="/лого.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,24 +32,24 @@
     <link rel="preconnect" href="https://n800898.alteg.io" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="uk_UA" />
-    <meta property="og:url" content="https://gotham-barbershop.netlify.app/" />
+    <meta property="og:url" content="https://gotham.com.ua/" />
     <meta property="og:site_name" content="GOTHAM Barbershop" />
     <meta property="og:title" content="GOTHAM Barbershop | Твій барбершоп у Хмельницькому" />
     <meta
       property="og:description"
       content="Знаходимося в центрі Хмельницького, у нас: стильні чоловічі стрижки, моделювання бороди, хімічна завивка — усе швидко та якісно. Запис онлайн або за телефоном — зручно та легко.&#10;Вул. Соборна 14/2, тел. +380 68 898 58 62."
     />
-    <meta property="og:image" content="https://gotham-barbershop.netlify.app/assets/mainfoto.png" />
-    <meta property="og:image:url" content="https://gotham-barbershop.netlify.app/assets/mainfoto.png" />
-    <meta property="og:image:secure_url" content="https://gotham-barbershop.netlify.app/assets/mainfoto.png" />
+    <meta property="og:image" content="https://gotham.com.ua/assets/mainfoto.png" />
+    <meta property="og:image:url" content="https://gotham.com.ua/assets/mainfoto.png" />
+    <meta property="og:image:secure_url" content="https://gotham.com.ua/assets/mainfoto.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1600" />
     <meta property="og:image:height" content="901" />
     <meta property="og:image:alt" content="GOTHAM Barbershop у центрі Хмельницького" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="GOTHAM Barbershop | Твій барбершоп у Хмельницькому" />
-    <meta name="twitter:image" content="https://gotham-barbershop.netlify.app/assets/mainfoto.png" />
-    <meta name="twitter:image:src" content="https://gotham-barbershop.netlify.app/assets/mainfoto.png" />
+    <meta name="twitter:image" content="https://gotham.com.ua/assets/mainfoto.png" />
+    <meta name="twitter:image:src" content="https://gotham.com.ua/assets/mainfoto.png" />
     <meta
       name="twitter:description"
       content="Знаходимося в центрі Хмельницького, у нас: стильні чоловічі стрижки, моделювання бороди, хімічна завивка — усе швидко та якісно. Запис онлайн або за телефоном — зручно та легко.&#10;Вул. Соборна 14/2, тел. +380 68 898 58 62."
@@ -54,11 +60,23 @@
         "@type": "Barbershop",
         "@id": "https://gotham.com.ua/#barbershop",
         "name": "GOTHAM Barbershop",
+        "alternateName": "GOTHAM",
         "url": "https://gotham.com.ua/",
-        "image": "https://gotham-barbershop.netlify.app/assets/mainfoto.png",
-        "logo": "https://gotham.com.ua/лого.png",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://gotham.com.ua/assets/mainfoto.png",
+          "width": 1600,
+          "height": 901
+        },
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://gotham.com.ua/лого.png",
+          "width": 2000,
+          "height": 2000
+        },
         "telephone": "+380688985862",
         "priceRange": "$$",
+        "openingHours": "Mo-Su 10:00-21:00",
         "description": "GOTHAM Barbershop у центрі Хмельницького: стильні чоловічі стрижки, моделювання бороди, хімічна завивка, онлайн-запис або запис за телефоном.",
         "address": {
           "@type": "PostalAddress",
@@ -76,7 +94,7 @@
           {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            "opens": "09:00",
+            "opens": "10:00",
             "closes": "21:00"
           }
         ],
@@ -99,11 +117,30 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://gotham.com.ua/#webpage",
+        "url": "https://gotham.com.ua/",
+        "name": "GOTHAM Barbershop | Твій барбершоп у Хмельницькому",
+        "description": "Знаходимося в центрі Хмельницького, у нас: стильні чоловічі стрижки, моделювання бороди, хімічна завивка — усе швидко та якісно. Запис онлайн або за телефоном — зручно та легко. Вул. Соборна 14/2, тел. +380 68 898 58 62.",
+        "inLanguage": "uk-UA",
+        "isPartOf": { "@id": "https://gotham.com.ua/#website" },
+        "about": { "@id": "https://gotham.com.ua/#barbershop" },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://gotham.com.ua/assets/mainfoto.png",
+          "width": 1600,
+          "height": 901
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
         "@type": "WebSite",
         "@id": "https://gotham.com.ua/#website",
         "url": "https://gotham.com.ua/",
         "name": "GOTHAM Barbershop",
-        "alternateName": "GOTHAM Barbershop Khmelnytskyi",
+        "alternateName": "GOTHAM",
         "inLanguage": "uk-UA"
       }
     </script>

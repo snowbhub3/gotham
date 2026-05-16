@@ -35,9 +35,13 @@ const GA_IDS = (import.meta.env.VITE_GA_IDS || import.meta.env.VITE_GA_ID || 'G-
   .map((id) => id.trim())
   .filter(Boolean);
 
+const getPathLang = () => {
+  if (typeof window === 'undefined') return null;
+  return window.location.pathname.replace(/\/+$/, '') === '/en' ? 'en' : null;
+};
+
 const defaultLang = () => {
-  if (typeof navigator === 'undefined') return 'uk';
-  return navigator.language?.toLowerCase().startsWith('en') ? 'en' : 'uk';
+  return getPathLang() || 'uk';
 };
 
 function getMarketYears() {
@@ -122,7 +126,7 @@ const faqs = [
   ['Чи є у вас пропозиція для нових клієнтів?', 'Так, у GOTHAM часто є спеціальні пропозиції для нових гостей. Актуальні умови краще уточнити під час запису.'],
   ['Який стиль стрижки обрати?', 'Наші майстри підберуть форму під тип волосся, риси обличчя, ваш темп життя і бажаний образ.'],
   ['Чи можу я прийти без запису?', 'Можна, але онлайн-запис гарантує, що майстер чекатиме саме на вас у вибраний час.'],
-  ['Чи працюєте ви у вихідні?', 'Так, ми працюємо щодня з 09:00 до 21:00, щоб вам було зручно знайти час для стрижки.'],
+  ['Чи працюєте ви у вихідні?', 'Так, ми працюємо щодня з 10:00 до 21:00, щоб вам було зручно знайти час для стрижки.'],
 ];
 
 const copy = {
@@ -162,7 +166,7 @@ const copy = {
       cardTitle: 'Запис на стрижку',
       cardBody: 'Якщо зручніше домовитися голосом, просто подзвоніть. Якщо хочете вибрати час самостійно, відкрийте онлайн-запис.',
       open: 'Відкрити онлайн запис',
-      pills: [['Стрижка', 'чоловічий образ'], ['Борода', 'форма й догляд'], ['09:00-21:00', 'щодня']],
+      pills: [['Стрижка', 'чоловічий образ'], ['Борода', 'форма й догляд'], ['10:00-21:00', 'щодня']],
       modalTitle: 'Онлайн запис GOTHAM',
       servicesTitle: 'Послуги GOTHAM',
       loadingTitle: 'Завантажуємо онлайн запис',
@@ -239,7 +243,7 @@ const copy = {
       cardTitle: 'Book a haircut',
       cardBody: 'If it is easier to arrange by voice, just call us. If you want to pick a time yourself, open online booking.',
       open: 'Open online booking',
-      pills: [['Haircut', 'men’s look'], ['Beard', 'shape and care'], ['09:00-21:00', 'daily']],
+      pills: [['Haircut', 'men’s look'], ['Beard', 'shape and care'], ['10:00-21:00', 'daily']],
       modalTitle: 'GOTHAM online booking',
       servicesTitle: 'GOTHAM services',
       loadingTitle: 'Loading online booking',
@@ -265,7 +269,7 @@ const copy = {
         ['Do you have an offer for new clients?', 'Yes, GOTHAM often has special offers for new guests. Please check the current terms when booking.'],
         ['Which haircut style should I choose?', 'Our barbers will choose the shape for your hair type, facial features, lifestyle, and desired look.'],
         ['Can I come without booking?', 'You can, but online booking guarantees that the barber will be waiting for you at the selected time.'],
-        ['Are you open on weekends?', 'Yes, we work daily from 09:00 to 21:00 so you can easily find time for a haircut.'],
+        ['Are you open on weekends?', 'Yes, we work daily from 10:00 to 21:00 so you can easily find time for a haircut.'],
       ],
     },
     review: {
@@ -387,7 +391,7 @@ function useGsap() {
 
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('gotham-theme') || 'dark');
-  const [lang, setLang] = useState(() => localStorage.getItem('gotham-lang') || defaultLang());
+  const [lang, setLang] = useState(() => getPathLang() || localStorage.getItem('gotham-lang') || defaultLang());
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState(0);
   const [bookingFrame, setBookingFrame] = useState(null);
@@ -403,8 +407,12 @@ function App() {
   useEffect(() => {
     document.documentElement.lang = lang;
     localStorage.setItem('gotham-lang', lang);
+    const canonicalUrl = lang === 'en' ? 'https://gotham.com.ua/en/' : 'https://gotham.com.ua/';
     document.title = t.seoTitle;
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonicalUrl);
     document.querySelector('meta[name="description"]')?.setAttribute('content', t.seoDescription);
+    document.querySelector('meta[property="og:locale"]')?.setAttribute('content', lang === 'en' ? 'en_US' : 'uk_UA');
+    document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonicalUrl);
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', t.seoTitle);
     document.querySelector('meta[property="og:description"]')?.setAttribute('content', t.seoDescription);
     document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', t.seoTitle);
@@ -431,6 +439,10 @@ function App() {
 
   const changeLang = (nextLang) => {
     setLang(nextLang);
+    const nextPath = nextLang === 'en' ? '/en/' : '/';
+    if (window.location.pathname !== nextPath) {
+      window.history.replaceState(null, '', nextPath);
+    }
     trackEvent('language_change', { language: nextLang });
   };
 

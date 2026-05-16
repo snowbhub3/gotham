@@ -6,7 +6,7 @@
   "description": "Modern React/Vite/Tailwind/GSAP version of GOTHAM Barbershop Khmelnytskyi.",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
+    "build": "vite build && node scripts/create-en-page.mjs",
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
