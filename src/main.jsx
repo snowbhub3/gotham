@@ -100,6 +100,8 @@ const masters = [
     nameEn: 'Oleksandr',
     role: 'Барбер',
     image: '/masters/oleksandr.jpeg',
+    width: 600,
+    height: 800,
     url: 'https://n800898.alteg.io/company/752876/personal/select-master/master-info/752876/2155939?o=',
     alt: 'Чоловіча стрижка в майстра Олександра у GOTHAM Barbershop, Хмельницький',
   },
@@ -108,6 +110,8 @@ const masters = [
     nameEn: 'Bohdan',
     role: 'Барбер',
     image: '/masters/bohdan.jpeg',
+    width: 465,
+    height: 800,
     url: 'https://n800898.alteg.io/company/752876/personal/select-master/master-info/752876/2775748?o=',
     alt: 'Чоловіча стрижка в майстра Богдана у GOTHAM Barbershop, Хмельницький',
   },
@@ -116,6 +120,8 @@ const masters = [
     nameEn: 'Valentyn',
     role: 'Барбер',
     image: '/masters/valentyn.jpeg',
+    width: 800,
+    height: 766,
     url: 'https://n800898.alteg.io/company/752876/personal/select-master/master-info/752876/2881238?o=m2849555',
     alt: 'Чоловіча стрижка в майстра Валентина у GOTHAM Barbershop, Хмельницький',
   },
@@ -301,7 +307,12 @@ function useGsap() {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduceMotion) return undefined;
 
-    const ctx = gsap.context(() => {
+    let ctx;
+    let idleId;
+    let timeoutId;
+
+    const initAnimations = () => {
+      ctx = gsap.context(() => {
       gsap.from('.nav-shell', { y: -28, opacity: 0, duration: 0.8, ease: 'power3.out' });
       gsap.from('.hero-reveal', {
         y: 34,
@@ -383,9 +394,20 @@ function useGsap() {
         paragraph.addEventListener('mouseenter', () => gsap.to(paragraph, { scale: 1.015, x: 6, duration: 0.28, ease: 'power2.out' }));
         paragraph.addEventListener('mouseleave', () => gsap.to(paragraph, { scale: 1, x: 0, duration: 0.28, ease: 'power2.out' }));
       });
-    });
+      });
+    };
 
-    return () => ctx.revert();
+    if ('requestIdleCallback' in window) {
+      idleId = window.requestIdleCallback(initAnimations, { timeout: 900 });
+    } else {
+      timeoutId = window.setTimeout(initAnimations, 350);
+    }
+
+    return () => {
+      if (idleId) window.cancelIdleCallback(idleId);
+      if (timeoutId) window.clearTimeout(timeoutId);
+      ctx?.revert();
+    };
   }, []);
 }
 
@@ -577,7 +599,7 @@ function Hero({ t, lang, openBooking, onNavClick }) {
         aria-label={t.hero.videoLabel}
       />
       <div className="hero-intro" aria-hidden="true">
-        <img src="/assets/mainfoto.jpeg" alt="" />
+        <img src="/assets/mainfoto.jpeg" width="1600" height="901" fetchPriority="high" decoding="async" alt="" />
       </div>
       <div className="hero-shade" />
       <div className="noise" />
@@ -628,7 +650,10 @@ function Gallery({ t, openBooking }) {
             <figure className="gallery-card" key={`top-${src}-${index}`}>
               <img
                 src={src}
-                loading={index > 3 ? 'lazy' : 'eager'}
+                width="590"
+                height="394"
+                loading="lazy"
+                decoding="async"
                 alt={t.gallery.altTop}
               />
             </figure>
@@ -639,7 +664,10 @@ function Gallery({ t, openBooking }) {
             <figure className="gallery-card" key={`bottom-${src}-${index}`}>
               <img
                 src={src}
+                width="590"
+                height="394"
                 loading="lazy"
+                decoding="async"
                 alt={t.gallery.altBottom}
               />
             </figure>
@@ -767,7 +795,7 @@ function Team({ t, lang, openBooking }) {
                 key={master.name}
                 onClick={() => openBooking(master.url, `${t.team.bookingTitle}: ${displayName}`, `master_${master.name}`)}
               >
-                <img src={master.image} loading="lazy" alt={master.alt} />
+                <img src={master.image} width={master.width} height={master.height} loading="lazy" decoding="async" alt={master.alt} />
                 <div className="master-content">
                   <span>{t.team.eyebrow.slice(0, -1)}</span>
                   <h3>{displayName}</h3>
@@ -1030,8 +1058,16 @@ function BookingModal({ t, frame, onClose }) {
 }
 
 function CookieConsent({ t, consent, setConsent }) {
+  const [isReady, setIsReady] = useState(false);
   const shouldAsk = !consent && !isUkraineLikeRegion();
-  if (!shouldAsk) return null;
+
+  useEffect(() => {
+    if (!shouldAsk) return undefined;
+    const timer = window.setTimeout(() => setIsReady(true), 1600);
+    return () => window.clearTimeout(timer);
+  }, [shouldAsk]);
+
+  if (!shouldAsk || !isReady) return null;
 
   const choose = (value) => {
     localStorage.setItem('gotham-analytics-consent', value);
